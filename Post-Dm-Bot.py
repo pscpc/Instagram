@@ -11,10 +11,10 @@ import time
 import json
 import os
 
-with open('usernames.txt', 'r') as f:
+with open('data/usernames.txt', 'r') as f:
     usernames = [line.strip() for line in f]
 
-f = open('accounts.json',)
+f = open('data/accounts.json',)
 accounts = json.load(f)
 numoftimes = "1"             # Enter in the number of times you would like to send the message to the recipient
 count=40   #to how many account
@@ -23,11 +23,11 @@ count_message=0
 
 # removing the accs who sent from file
 def delete_file_line():
-        with open("infos/usernames.txt") as f:
+        with open("data/usernames.txt") as f:
             mylist = f.read().splitlines()
         newlist = usernames[:count]
-        os.remove("infos/usernames.txt")
-        thefile = open('infos/usernames.txt', 'w')
+        os.remove("data/usernames.txt")
+        thefile = open('data/usernames.txt', 'w')
         del mylist[:count]
         for item in mylist:
             thefile.write("%s\n" % item)
